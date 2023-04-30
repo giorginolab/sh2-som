@@ -12,9 +12,8 @@ def hexagonal_grid(N, M):
 
 def state_plot(hgrid, c):
     plt.scatter(hgrid[:,0],hgrid[:,1],s=150,c=c)
-    for i in range(400):
-        plt.annotate(i+1, (hgrid[i,0], hgrid[i,1]), fontsize=6, 
-                        horizontalalignment="center", verticalalignment="center")
+    for i, coord in enumerate(hgrid):
+        plt.annotate(i+1, coord, fontsize=6, ha="center", va="center")  
 
 
 if __name__=="__main__":
