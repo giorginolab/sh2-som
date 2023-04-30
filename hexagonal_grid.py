@@ -8,8 +8,14 @@ def hexagonal_grid(N, M):
             x = j * np.sqrt(3) - (i % 2) * (np.sqrt(3) / 2)
             y = i * 1.5
             grid_centers.append((x, y))
-
     return np.array(grid_centers)
+
+def state_plot(hgrid, c):
+    plt.scatter(hgrid[:,0],hgrid[:,1],s=150,c=c)
+    for i in range(400):
+        plt.annotate(i+1, (hgrid[i,0], hgrid[i,1]), fontsize=6, 
+                        horizontalalignment="center", verticalalignment="center")
+
 
 if __name__=="__main__":
     N = 5  # Number of hexagons along the x-axis
