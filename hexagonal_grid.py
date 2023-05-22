@@ -15,6 +15,8 @@ def state_plot(hgrid, c):
     for i, coord in enumerate(hgrid):
         plt.annotate(i+1, coord, fontsize=6, ha="center", va="center")  
 
+def index_of_closest(lst, v):
+    return np.argmin((lst-v)**2)
 
 if __name__=="__main__":
     N = 5  # Number of hexagons along the x-axis
