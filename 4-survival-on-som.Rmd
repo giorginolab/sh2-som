@@ -1,0 +1,36 @@
+```{r setup}
+library(ggplot2)
+```
+
+```{r}
+uf <- as.matrix(read.table("data/Unbound_Fraction.txt"))
+```
+
+```{r}
+filled.contour(1:800, 1:200, t(1-uf), nlevels = 20,
+	  xlab="Time (ns)", ylab="Neuron")
+
+```
+
+```{r}
+plot(uf[200,], type="l", xlab="Time (ns)", ylab="Unbound fraction", ylim=c(0,1))
+lines(uf[150,], lty=2)
+lines(uf[100,], lty=3)
+lines(uf[50,],  lty=4)
+legend("bottomleft", NULL, c(200,150,100,50), lty=1:4)
+```
+
+Now fit linear models on the 400-800 ns regions.
+
+```{r}
+rates <- NULL
+N <- 200
+for(n in 1:N) {
+	tmp <- data.frame(time=1:800, uf=uf[n,])
+	ff <- lm(uf~time, tmp, time>400)
+	rates <- rbind(rates, data.frame(n=n, rate=-N*ff$coefficients["time"]))
+}
+
+plot(1000*rates$rate, xlab="Neuron ID", ylab="Binding rate (events/μs)", type="l")
+```
+
