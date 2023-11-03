@@ -15,6 +15,7 @@ def state_plot(hgrid, c):
     for i, coord in enumerate(hgrid):
         plt.annotate(i+1, coord, fontsize=6, ha="center", va="center")  
 
+# Given a vector lst and a value v, returns the index to the element closest to v
 def index_of_closest(lst, v):
     return np.argmin((lst-v)**2)
 

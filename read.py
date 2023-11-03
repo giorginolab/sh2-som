@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def read_traj_list(fname="SOM.neuron.classification.dat.xz"):
+def read_traj_list(fname="data/SOM.neuron.classification.dat.xz"):
     d=pd.read_table(fname)
     d["RFrame"]=d.groupby(['Replica']).cumcount()
     d["State"]=d["Neuron.classif"]-1
