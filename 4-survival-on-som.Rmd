@@ -33,4 +33,7 @@ for(n in 1:N) {
 
 plot(1000*rates$rate, xlab="Neuron ID", ylab="Binding rate (events/μs)", type="l")
 ```
+```{r}
+ plot(1000*rates$rate[1:30], xlab="Neuron ID", ylab="Binding rate (events/μs)")
+```
 
