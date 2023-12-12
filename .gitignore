@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+.ipynb_checkpoints
+.vscode
+
+__pycache__
+
+tmp

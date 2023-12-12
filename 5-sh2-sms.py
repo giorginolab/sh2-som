@@ -77,7 +77,13 @@ print(eqDist)
 
 # %%
 
-modello.viewStates(protein = True)
+modello.viewStates(protein = "chain A")
+
+
+# %%
+
+htmd.config.config
+
 
 
 # %%
